@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {% load staticfiles %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'pages/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'pages/bootstrap.min.css' %}" />
+  <script type="text/javascript" src="{% static 'pages/jquery.js' %}"></script>  <!-- DO NOT CHANGE ORDER! -->
+  <script type="text/javascript" src="{% static 'pages/bootstrap.min.js' %}"></script>  <!-- DO NOT CHANGE ORDER! -->
+  <script type="text/javascript" src="{% static 'pages/main.js' %}"></script>  <!-- DO NOT CHANGE ORDER! -->
+
+</head>
+<body>
+
+
+<!-- navigation panel -->
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Laser Print</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Make Your Print</a></li>
+          <li><a href="#google_map">Contact</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<div id="home" class="home">
+    <div class="text-vcenter">
+      <!--<h1>Contact</h1>-->
+        <h2>Need to get in touch?</h2>
+      <h3>Send us an email below!</h3>
+        <br><br>
+
+        {% block content %}
+    <form role="form" action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!--Need to figure out how to customize buttons-->
+        <!--<button type="submit">Submit</button>-->
+        <!--<a href="#about" class="btn btn-default btn-lg">About</a>--> <!--Jumbotron HTML-->
+       <a href="#submit" class="btn btn-default btn-lg" role="button">Submit</a>
+
+
+    </form>
+    {% endblock %}
+
+    </div>
+  </div>
+
+
+</body>
+</html>
